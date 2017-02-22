@@ -1,0 +1,2 @@
+# mongoDB_Cxx_drivers_compile_script
+Compile mongoDB Cxx drivers automatically
