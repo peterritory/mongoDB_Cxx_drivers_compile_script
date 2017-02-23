@@ -23,6 +23,9 @@
 该脚本为在Windows下运行的Powershell脚本，建议以管理员身份打开Powershell后执行该脚本。
 新建一个文件夹，将脚本放入其中。请保持网络畅通。运行完毕后，该目录中还会留下下载的驱动文件。
 
+**注意：由于新版MongoDB C++驱动在Windows下静态编译还未成功进行测试，
+故这里使用1.4.2的C驱动和libbson，还有3.0.3版的C++驱动。该驱动最高支持MongoDB 3.2**
+
 ### 运行所需
 * 需要安装.NET Framework 4.0+，脚本需要其安装目录里面的MsBuild.exe，默认认为其安装目录位于C:\Windows\Microsoft.Net\Framework64\v4.*里面
 
