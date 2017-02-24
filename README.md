@@ -33,6 +33,8 @@
 
 * 需安装git，并将其添加到环境变量（即需要可以在Powershell中使用git命令运行git）
 
+* 需安装cmake，并将其添加到环境变量（即需要可以在Powershell中使用cmake命令运行cmake）
+
 ### 运行方法
 
     .\compile.ps1
