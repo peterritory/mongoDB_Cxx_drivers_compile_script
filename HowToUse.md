@@ -53,21 +53,21 @@ Windows下的驱动文件直接放在 C:\mongo-c-driver\
 接下来在项目属性的 C/C++ > 预处理器 里面，在“预处理器定义”（PreprocessorDefinitions）
 里面添加如下内容：
 
-    MONGOCXX_STATIC
-    BSONCXX_STATIC
-    _DEBUG
-    _CONSOLE
+    MONGOCXX_STATIC;
+    BSONCXX_STATIC;
+    _DEBUG;
+    _CONSOLE;
 
 最后在项目属性的 链接器 > 输入 里面，对“附加依赖项”（AdditionalDependencies）
 里面添加如下内容：
 
-    bcrypt.lib
-    secur32.lib
-    crypt32.lib
-    ws2_32.lib
-    libmongocxx.lib
-    libbsoncxx.lib
-    mongoc-static-1.0.lib
-    bson-static-1.0.lib
+    bcrypt.lib;
+    secur32.lib;
+    crypt32.lib;
+    ws2_32.lib;
+    libmongocxx.lib;
+    libbsoncxx.lib;
+    mongoc-static-1.0.lib;
+    bson-static-1.0.lib;
 
 一般来说，进行这些设置后，就可以编译链接MongoDB C++和C驱动的静态库了。
