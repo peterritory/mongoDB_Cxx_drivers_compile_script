@@ -1,4 +1,4 @@
-# 如何使用编译好的静态库进行编译
+# 如何使用编译好的静态库进行编译链接
 ## Ubuntu
 Ubuntu下的静态库和动态库文件（如libbsoncxx.a和libbsoncxx.so等）
 存放在 /usr/local/lib/文件夹下。
