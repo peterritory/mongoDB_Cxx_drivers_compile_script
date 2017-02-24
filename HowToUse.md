@@ -25,3 +25,49 @@ Ubuntu下的静态库和动态库文件（如libbsoncxx.a和libbsoncxx.so等）
 另外还注意要加上有关多线程的系统标准库
 
     -l pthread
+
+## Windows
+Windows下的驱动文件直接放在 C:\mongo-c-driver\ 
+和C:\mongo-cxx-driver\，要使用其中的静态库进行编译时需要对Visual Studio进行一些设置，
+这里以编译官方文档上对驱动进行测试的代码 test.cpp 为例进行简单介绍。
+
+**注意：该方法只在1.4.2版C驱动，3.0.3版C++驱动和3.2版MongoDB上测试过，
+在新版驱动上还未进行过成功测试**
+
+首先在Visual Studio里，将编译方式设为x64。
+
+然后打开项目属性 > VC++目录，
+在这里选择“包含目录”（IncludePath），在这里添加5个目录，分别为：
+
+* boost所在的目录（例如C:\boost_1_63_0）
+* C:\mongo-cxx-driver\include\mongocxx\v_noabi
+* C:\mongo-cxx-driver\include\bsoncxx\v_noabi
+* C:\mongo-c-driver\include\libmongoc-1.0
+* C:\mongo-c-driver\include\libbson-1.0
+
+然后在下面的“库目录”（LibraryPath）里添加两个目录：
+
+* C:\mongo-cxx-driver\lib
+* C:\mongo-c-driver\lib
+
+接下来在项目属性的 C/C++ > 预处理器 里面，在“预处理器定义”（PreprocessorDefinitions）
+里面添加如下内容：
+
+    MONGOCXX_STATIC
+    BSONCXX_STATIC
+    _DEBUG
+    _CONSOLE
+
+最后在项目属性的 链接器 > 输入 里面，对“附加依赖项”（AdditionalDependencies）
+里面添加如下内容：
+
+    bcrypt.lib
+    secur32.lib
+    crypt32.lib
+    ws2_32.lib
+    libmongocxx.lib
+    libbsoncxx.lib
+    mongoc-static-1.0.lib
+    bson-static-1.0.lib
+
+一般来说，进行这些设置后，就可以编译链接MongoDB C++和C驱动的静态库了。
